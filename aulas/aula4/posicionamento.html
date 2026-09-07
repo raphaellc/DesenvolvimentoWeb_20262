@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Aula 4 - Propriedade position</title>
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #222;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p.intro {
+        max-width: 700px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+    }
+
+    section.exemplo {
+        max-width: 700px;
+        margin: 0 auto 50px auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 20px;
+    }
+
+    section.exemplo h2 {
+        margin-top: 0;
+        border-bottom: 2px solid #444;
+        padding-bottom: 8px;
+    }
+
+    /* Caixa "campo de jogo" onde os elementos posicionados são exibidos */
+    .caixa {
+        position: relative; /* necessário para o absolute funcionar em relação a ela */
+        height: 180px;
+        background-color: #e8f0fe;
+        border: 2px dashed #789;
+        overflow: auto;
+    }
+
+    .box {
+        width: 90px;
+        height: 60px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    /* ---------- static (padrão) ---------- */
+    .box-static {
+        position: static;
+        background-color: #6c757d;
+        margin: 10px;
+    }
+
+    /* ---------- relative ---------- */
+    .box-relative {
+        position: relative;
+        top: 20px;
+        left: 40px;
+        background-color: #0d6efd;
+        margin: 10px;
+    }
+
+    /* ---------- fixed ---------- */
+    .box-fixed {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        background-color: #dc3545;
+        z-index: 999;
+    }
+
+    /* ---------- absolute ---------- */
+    .box-absolute {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: #198754;
+    }
+
+    /* ---------- sticky ---------- */
+    .box-sticky {
+        position: sticky;
+        top: 0;
+        background-color: #fd7e14;
+        margin-bottom: 10px;
+    }
+
+    .conteudo-scroll {
+        line-height: 1.6;
+    }
+
+</style>
+</head>
+<body>
+
+    <h1>A propriedade CSS <code>position</code></h1>
+    <p class="intro">
+        A propriedade <code>position</code> define como um elemento é
+        posicionado na página. Seus principais valores são:
+        <strong>static</strong>, <strong>relative</strong>,
+        <strong>fixed</strong>, <strong>absolute</strong> e
+        <strong>sticky</strong>. Veja abaixo um exemplo de cada um.
+    </p>
+
+    <!-- STATIC -->
+    <section class="exemplo">
+        <h2>1. static (valor padrão)</h2>
+        <p>
+            Todo elemento nasce com <code>position: static</code>. Ele segue
+            o fluxo normal da página e as propriedades <code>top</code>,
+            <code>right</code>, <code>bottom</code> e <code>left</code>
+            não têm nenhum efeito sobre ele.
+        </p>
+        <div class="caixa">
+            <div class="box box-static">static</div>
+        </div>
+    </section>
+
+    <!-- RELATIVE -->
+    <section class="exemplo">
+        <h2>2. relative</h2>
+        <p>
+            O elemento continua ocupando seu espaço original no fluxo da
+            página, mas pode ser deslocado visualmente a partir dessa
+            posição usando <code>top</code>, <code>right</code>,
+            <code>bottom</code> ou <code>left</code>. Note que o espaço
+            que ele ocupava antes continua reservado.
+        </p>
+        <div class="caixa">
+            <div class="box box-relative">relative<br>(top:20px; left:40px)</div>
+        </div>
+    </section>
+
+    <!-- ABSOLUTE -->
+    <section class="exemplo">
+        <h2>3. absolute</h2>
+        <p>
+            O elemento é retirado do fluxo normal da página (não reserva
+            mais espaço) e é posicionado em relação ao ancestral mais
+            próximo que tenha <code>position</code> diferente de
+            <code>static</code>. Aqui ele está posicionado em relação à
+            caixa tracejada, que é <code>relative</code>.
+        </p>
+        <div class="caixa">
+            <div class="box box-absolute">absolute<br>(top:15px; right:15px)</div>
+        </div>
+    </section>
+
+    <!-- STICKY -->
+    <section class="exemplo">
+        <h2>4. sticky</h2>
+        <p>
+            É um híbrido entre <code>relative</code> e <code>fixed</code>:
+            o elemento se comporta como <code>relative</code> até que a
+            rolagem atinja o limite definido (<code>top: 0</code>, neste
+            caso) — a partir daí ele "gruda" no topo do contêiner com
+            rolagem. Role a caixa abaixo para ver o efeito.
+        </p>
+        <div class="caixa">
+            <div class="box box-sticky">sticky (top: 0)</div>
+            <div class="conteudo-scroll">
+                <p>Role para baixo dentro desta caixa...</p>
+                <p>...e observe que a caixa laranja "gruda" no topo...</p>
+                <p>...enquanto o restante do conteúdo continua rolando</p>
+                <p>normalmente por baixo dela.</p>
+                <p>Continue rolando para ver mais texto de exemplo.</p>
+                <p>Fim do conteúdo desta caixa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXED -->
+    <section class="exemplo">
+        <h2>5. fixed</h2>
+        <p>
+            O elemento também é retirado do fluxo normal, mas fica fixo em
+            relação à janela do navegador (viewport), não se movendo nem
+            quando a página inteira é rolada. Um exemplo clássico é um
+            botão flutuante. Role toda a página para ver a caixa vermelha
+            no canto inferior direito permanecer sempre visível.
+        </p>
+    </section>
+
+    <p class="intro" style="height: 400px;">
+        (Espaço extra só para permitir a rolagem da página e demonstrar
+        o comportamento do <code>position: fixed</code> no canto inferior
+        direito da tela.)
+    </p>
+
+    <div class="box box-fixed">fixed</div>
+
+</body>
+</html>

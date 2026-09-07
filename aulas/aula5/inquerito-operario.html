@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!--
+        Meta tag de viewport: sem ela, o navegador do celular assume uma
+        largura "de desktop" (geralmente 980px) e depois encolhe a página
+        inteira para caber na tela, deixando tudo minúsculo.
+        width=device-width  -> a largura da página segue a largura real do dispositivo
+        initial-scale=1.0   -> o zoom inicial é 1:1, sem aproximação/afastamento automático
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquérito Operário TI 2026</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!--
+        Indicador de viewport (caixa de demonstração da Aula 5).
+        Não faz parte do inquérito em si: é só um "termômetro" que mostra,
+        em tempo real, qual media query está ativa. Redimensione a janela
+        ou abra o painel de dispositivos do navegador para ver o texto mudar.
+        Pode ser removida em uma versão final "de produção".
+    -->
+    <div class="viewport-indicator" aria-hidden="true">
+        <span class="vi-breakpoint"></span>
+        <span class="vi-orientation"></span>
+    </div>
+
+    <header>
+        <h1>Inquérito Operário 2026</h1>
+        <p>Condições de Trabalho e Vida na Tecnologia da Informação (TI)</p>
+    </header>
+
+    <main class="container">
+        <form action="#" method="GET">
+            <fieldset class="section-card">
+                <legend>Acesso e Identificação (Anônimo)</legend>
+
+                <div class="form-group">
+                    <label for="form-id"> Código do Inquérito (identificador único):</label>
+                    <input type="text" id="form-id" name="form-id" value="INQ-2026" disabled>
+                    <small class="help-text"> Código não editável gerado automaticamente pelo sistema.</small>
+                </div>
+                <div class="form-group">
+                    <label for="chave-acesso">Chave de Acesso Pessoal (senha):</label>
+                    <input type="password" id="chave-acesso" name="chave-acesso" placeholder="Crie uma senha de acesso rápido" required>
+                    <small class="help-text"> Utilizada caso queira alterar ou excluir suas respostas posteriormente.</small>
+                </div>
+                <div class="form-group">
+                    <label for="data-preenchimento">Data de Preenchimento:</label>
+                    <input type="date" id="data-preenchimento" name="data-preenchimento" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-contato"> E-mail de Contato (Opcional):</label>
+                    <input type="email" id="email-contato" name="email-contato" placeholder="seu.email@provedor.com">
+                </div>
+            </fieldset>
+
+            <fieldset class="section-card">
+                <legend>Perfil (Opcional e Anônimo)</legend>
+
+                <!--
+                    .form-group.row: no mobile (largura base do CSS) os dois
+                    campos ficam empilhados em coluna única; a partir do
+                    breakpoint de tablet (min-width: 600px) eles passam a
+                    ficar lado a lado. Veja a media query em styles.css.
+                -->
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="faixa-etaria">Faixa Etária:</label>
+                        <select id="faixa-etaria" name="faixa-etaria">
+                            <option value="">Selecione...</option>
+                            <option value="menos-18">Menos de 18</option>
+                            <option value="18-24">18 a 24 anos</option>
+                            <option value="25-34">25 a 34 anos</option>
+                            <option value="35-44">35 a 44 anos</option>
+                            <option value="45-54">45 a 54 anos</option>
+                            <option value="55-mais">55 anos ou mais</option>
+                            <option value="nao-informar">Prefiro não informar</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="genero">Gênero:</label>
+                        <select id="genero" name="genero">
+                            <option value="">Selecione...</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="nao-binario">Não-binário</option>
+                            <option value="outro">Outro</option>
+                            <option value="nao-informar">Prefiro não informar</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="localidade">Cidade / Estado:</label>
+                    <input type="text" id="localidade" name="localidade" placeholder="Ex: São Paulo/SP">
+                </div>
+            </fieldset>
+
+            <fieldset class="section-card">
+                <legend>Situação Profissional</legend>
+
+                <!--
+                    .form-grid: no mobile é uma coluna única (mais fácil de ler
+                    rolando com o polegar); a partir do breakpoint de desktop
+                    (min-width: 992px) vira um grid de 2 colunas, aproveitando
+                    a largura extra da tela. É o exemplo do texto "em telas
+                    maiores os campos se reorganizam em múltiplas colunas".
+                -->
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="cargo">Cargo Atual:</label>
+                        <select id="cargo" name="cargo">
+                            <option value="">Selecione...</option>
+                            <option value="dev">Desenvolvedor(a)</option>
+                            <option value="suporte-infra">Suporte / Infraestrutura</option>
+                            <option value="qa">QA / Testes</option>
+                            <option value="dados">Dados / BI</option>
+                            <option value="gestao">Gestão / Liderança</option>
+                            <option value="design-ux">Design / UX</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tempo-empresa">Tempo na Empresa Atual:</label>
+                        <select id="tempo-empresa" name="tempo-empresa">
+                            <option value="">Selecione...</option>
+                            <option value="menos-1">Menos de 1 ano</option>
+                            <option value="1-3">1 a 3 anos</option>
+                            <option value="3-5">3 a 5 anos</option>
+                            <option value="5-10">5 a 10 anos</option>
+                            <option value="mais-10">Mais de 10 anos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <fieldset class="subgroup">
+                        <legend class="subgroup-legend">Regime de Contratação:</legend>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="regime" value="clt"> CLT</label>
+                            <label class="radio-label"><input type="radio" name="regime" value="pj"> PJ</label>
+                            <label class="radio-label"><input type="radio" name="regime" value="freelancer"> Freelancer / Autônomo</label>
+                            <label class="radio-label"><input type="radio" name="regime" value="estagio"> Estágio</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset class="subgroup">
+                        <legend class="subgroup-legend">Modalidade de Trabalho:</legend>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="modalidade" value="presencial"> Presencial</label>
+                            <label class="radio-label"><input type="radio" name="modalidade" value="hibrido"> Híbrido</label>
+                            <label class="radio-label"><input type="radio" name="modalidade" value="remoto"> Remoto</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </fieldset>
+
+            <fieldset class="section-card">
+                <legend>Condições de Trabalho</legend>
+
+                <div class="form-group">
+                    <label for="carga-horaria">Carga Horária Semanal (em horas):</label>
+                    <input type="number" id="carga-horaria" name="carga-horaria" min="1" max="80" placeholder="Ex: 40">
+                </div>
+
+                <div class="form-group">
+                    <fieldset class="subgroup">
+                        <legend class="subgroup-legend">Benefícios Recebidos (marque todos que se aplicam):</legend>
+                        <!--
+                            .checkbox-grid usa CSS Grid com auto-fit/minmax:
+                            ela se reorganiza sozinha conforme o espaço
+                            disponível, sem precisar de uma media query
+                            específica para isso (responsividade "intrínseca").
+                        -->
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label"><input type="checkbox" name="beneficios" value="vale-refeicao"> Vale-refeição / Alimentação</label>
+                            <label class="checkbox-label"><input type="checkbox" name="beneficios" value="plano-saude"> Plano de Saúde</label>
+                            <label class="checkbox-label"><input type="checkbox" name="beneficios" value="vale-transporte"> Vale-transporte</label>
+                            <label class="checkbox-label"><input type="checkbox" name="beneficios" value="auxilio-home-office"> Auxílio Home Office</label>
+                            <label class="checkbox-label"><input type="checkbox" name="beneficios" value="day-off-aniversario"> Day Off de Aniversário</label>
+                            <label class="checkbox-label"><input type="checkbox" name="beneficios" value="bonus-plr"> Bônus por Performance / PLR</label>
+                            <label class="checkbox-label"><input type="checkbox" name="beneficios" value="plano-odontologico"> Plano Odontológico</label>
+                            <label class="checkbox-label"><input type="checkbox" name="beneficios" value="nenhum"> Nenhum benefício</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </fieldset>
+
+            <fieldset class="section-card">
+                <legend>Percepção e Bem-estar</legend>
+
+                <div class="form-group">
+                    <fieldset class="subgroup">
+                        <legend class="subgroup-legend">Nível de Satisfação Geral com o Trabalho:</legend>
+                        <div class="radio-group radio-group-inline">
+                            <label class="radio-label"><input type="radio" name="satisfacao" value="1"> 1 - Muito insatisfeito</label>
+                            <label class="radio-label"><input type="radio" name="satisfacao" value="2"> 2 - Insatisfeito</label>
+                            <label class="radio-label"><input type="radio" name="satisfacao" value="3"> 3 - Neutro</label>
+                            <label class="radio-label"><input type="radio" name="satisfacao" value="4"> 4 - Satisfeito</label>
+                            <label class="radio-label"><input type="radio" name="satisfacao" value="5"> 5 - Muito satisfeito</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <label for="desafio">Principal desafio enfrentado no trabalho:</label>
+                    <textarea id="desafio" name="desafio" rows="4" placeholder="Descreva livremente..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="sugestao">Sugestão de melhoria para o setor de TI:</label>
+                    <textarea id="sugestao" name="sugestao" rows="4" placeholder="Descreva livremente..."></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <input type="reset" value="Limpar Respostas" class="btn btn-secondary">
+                <input type="submit" value="Enviar ao Inquérito" class="btn btn-primary">
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>Inquérito Operário TI 2026. Uma releitura científica e pedagógica das relações de trabalho.</p>
+    </footer>
+</body>
+</html>

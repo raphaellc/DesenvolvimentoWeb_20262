@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula 4 - Formulário de Login</title>
+</head>
+<body>
+
+    <h1>Formulário de Login</h1>
+
+    <!--
+        method="get" faz o navegador enviar os dados do formulário
+        como parâmetros na própria URL (ex: aula4.html?usuario=...&senha=...).
+        Assim dá para "visualizar" os dados enviados olhando a barra de
+        endereços do navegador depois de clicar em Entrar, sem precisar
+        de JavaScript nem de um servidor.
+    -->
+    <form action="#" method="get">
+
+        <label for="usuario">Usuário:</label><br>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <label for="lembrar">
+            <input type="checkbox" id="lembrar" name="lembrar" value="sim">
+            Lembrar de mim
+        </label><br><br>
+
+        <input type="submit" value="Entrar">
+        <input type="reset" value="Limpar">
+
+    </form>
+
+    <hr>
+
+    <p>
+        Depois de clicar em "Entrar", observe a barra de endereços do
+        navegador: os dados digitados aparecerão como parâmetros na URL,
+        assim: <code>aula4.html?usuario=SEU_USUARIO&senha=SUA_SENHA&lembrar=sim</code>
+    </p>
+
+</body>
+</html>

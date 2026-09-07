@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquérito Operário TI 2026</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Inquérito Operário 2026</h1>
+        <p>Condições de Trabalho e Vida na Tecnologia da Informação (TI)</p>
+    </header>
+
+    <main class="container">
+        <!-- action determina o destino e method define como os dados são enviados (POST) -->
+        <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
+            
+            <!-- Bloco de Acesso e Segurança (Representa atributos disabled, password, date e email) -->
+            <fieldset class="section-card">
+                <legend>Acesso e Identificação (Anônimo)</legend>
+                
+                <div class="form-group">
+                    <label for="form-id">Código do Inquérito (Identificador Único):</label>
+                    <input type="text" id="form-id" name="form-id" value="INQ-2025-TEMP" disabled>
+                    <small class="help-text">Código não editável gerado automaticamente pelo sistema.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="chave-acesso">Chave de Acesso Pessoal (Senha):</label>
+                    <input type="password" id="chave-acesso" name="chave-acesso" placeholder="Crie uma senha de acesso rápido" required>
+                    <small class="help-text">Utilizada caso queira alterar ou excluir suas respostas posteriormente.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="data-preenchimento">Data de Preenchimento:</label>
+                    <input type="date" id="data-preenchimento" name="data-preenchimento" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email-contato">E-mail de Contato (Opcional):</label>
+                    <input type="email" id="email-contato" name="email-contato" placeholder="seu.email@provedor.com">
+                </div>
+            </fieldset>
+
+            <!-- Seção I: Condições de Trabalho -->
+            <fieldset class="section-card">
+                <legend>I. Condições de Trabalho</legend>
+                
+                <!-- Q1 (Especialidade) usando input de texto atrelado ao Datalist -->
+                <div class="form-group">
+                    <label for="profissao">Qual é a sua profissão ou especialidade principal em TI? (Q1)</label>
+                    <input type="text" id="profissao" name="profissao" list="profissoes-list" placeholder="Ex: Desenvolvedor Back-end" required>
+                    <datalist id="profissoes-list">
+                        <option value="Desenvolvedor(a) Front-end">
+                        <option value="Desenvolvedor(a) Back-end">
+                        <option value="Desenvolvedor(a) Full Stack">
+                        <option value="Engenheiro(a) de DevOps">
+                        <option value="Cientista de Dados">
+                        <option value="Analista de Segurança">
+                        <option value="Gerente de Produto (PM)">
+                        <option value="UX/UI Designer">
+                    </datalist>
+                </div
+
+                <!-- Q4 (Idade e Gênero) usando input de número e caixa select -->
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="idade">Qual é a sua idade? (Q4)</label>
+                        <input type="number" id="idade" name="idade" min="16" max="100" placeholder="Idade" required>
+                    </div>
+                    <div class="col">
+                        <label for="genero">Qual é o seu gênero? (Q4)</label>
+                        <select id="genero" name="genero" required>
+                            <option value="" disabled selected>Selecione seu gênero...</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Não-binário">Não-binário</option>
+                            <option value="Prefiro não dizer">Prefiro não dizer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Q10 (Localização/Modelo) usando input radio -->
+                <div class="form-group">
+                    <label>Onde você realiza seu trabalho principalmente? (Q10)</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="modelo-trabalho" value="remoto" required> Totalmente Remoto
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="modelo-trabalho" value="hibrido"> Modelo Híbrido
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="modelo-trabalho" value="escritorio"> Escritório da Empresa
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q12 (Ferramentas) usando múltiplos checkboxes -->
+                <div class="form-group">
+                    <label>Quais ferramentas e tecnologias você utiliza no seu dia a dia? (Q12)</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="tecnologias" value="javascript"> JavaScript / TypeScript
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="tecnologias" value="python"> Python
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="tecnologias" value="java"> Java
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="tecnologias" value="csharp"> C# / .NET
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="tecnologias" value="cloud"> Cloud (AWS/Azure/GCP)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="tecnologias" value="docker"> Docker / Kubernetes
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Seção II: Horário de Trabalho -->
+            <fieldset class="section-card">
+                <legend>II. Horário de Trabalho</legend>
+
+                <!-- Q30 (Horas trabalhadas) usando input de número com valor padrão -->
+                <div class="form-group">
+                    <label for="horas-trabalho">Indique o número de horas que você realmente trabalha por dia: (Q30)</label>
+                    <input type="number" id="horas-trabalho" name="horas-trabalho" min="1" max="24" value="8" required>
+                    <small class="help-text">Considere reuniões e respostas a mensagens fora da jornada comum.</small>
+                </div>
+
+                <!-- Q35 (Software de monitoramento) usando input radio -->
+                <div class="form-group">
+                    <label>A empresa utiliza softwares para monitorar sua atividade no computador? (Q35)</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="monitoramento" value="sim" required> Sim (Capturas de tela, rastreamento de cliques, etc.)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="monitoramento" value="nao"> Não / Não tenho conhecimento
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Seção III: Acordos de Trabalho -->
+            <fieldset class="section-card">
+                <legend>III. Acordos de Trabalho e Remuneração</legend>
+
+                <!-- Q46 (Regime de contratação) usando select/options -->
+                <div class="form-group">
+                    <label for="regime-contratacao">Qual é o seu regime de contratação? (Q46)</label>
+                    <select id="regime-contratacao" name="regime-contratacao" required>
+                        <option value="" disabled selected>Escolha uma opção...</option>
+                        <option value="clt">CLT (Consolidação das Leis do Trabalho)</option>
+                        <option value="pj">PJ (Pessoa Jurídica / Consultoria alocada)</option>
+                        <option value="freelancer">Freelancer / Autônomo</option>
+                        <option value="cooperado">Cooperado</option>
+                        <option value="estagio">Contrato de Estágio</option>
+                    </select>
+                </div>
+
+                <!-- Q62 (Salário Bruto) usando input de número com controle de centavos -->
+                <div class="form-group">
+                    <label for="salario">Qual é o valor aproximado do seu salário bruto mensal (R$)? (Q62)</label>
+                    <input type="number" id="salario" name="salario" min="0" step="0.01" placeholder="Ex: 5500.00" required>
+                </div>
+
+                <!-- Envio de arquivo opcional representativo do type="file" -->
+                <div class="form-group">
+                    <label for="comprovante-contrato">Anexar cópia oculta do contrato ou folha de pagamento (Opcional - PDF ou Imagem):</label>
+                    <input type="file" id="comprovante-contrato" name="comprovante-contrato" accept=".pdf,image/*">
+                </div>
+            </fieldset>
+
+            <!-- Seção IV: Condições de Vida e Luta Coletiva -->
+            <fieldset class="section-card">
+                <legend>IV. Condições de Vida e Luta Coletiva</legend>
+
+                <!-- Q82 (Presença do Sindicato) usando input radio -->
+                <div class="form-group">
+                    <label>Existem sindicatos ou associações de trabalhadores de TI atuantes na sua empresa ou região? (Q82)</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="sindicato" value="sim" required> Sim, são presentes e ativos
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="sindicato" value="parcial"> Sim, mas são pouco atuantes ou distantes da rotina
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="sindicato" value="nao"> Não conheço nenhum movimento ou associação
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q100 (Subjetiva) usando textarea para texto longo -->
+                <div class="form-group">
+                    <label for="condicoes-vida">Quais são as condições gerais de vida (física, intelectual e moral) que você percebe na sua rotina em TI? (Q100)</label>
+                    <textarea id="condicoes-vida" name="condicoes-vida" rows="5" placeholder="Fale sobre o equilíbrio de sua vida pessoal com o trabalho, níveis de estresse, cansaço físico ou mental, etc." required></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Botões de Ação (type="submit" e type="reset") -->
+            <div class="form-actions">
+                <input type="reset" value="Limpar Respostas" class="btn btn-secondary">
+                <input type="submit" value="Enviar ao Inquérito" class="btn btn-primary">
+            </div>
+
+        </form>
+    </main>
+
+    <footer>
+        <p>Inquérito Operário TI 2025. Uma releitura científica e pedagógica das relações de trabalho.</p>
+    </footer>
+
+</body>
+</html>

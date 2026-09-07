@@ -1,0 +1,43 @@
+.menu-topo {
+    position: sticky;
+    top: 0;
+    background-color: #fd7e14;
+    overflow: hidden;
+}
+
+.menu-links {
+    position: absolute;
+    right: 0;
+    top:50%;     
+}
+.menu-links a{
+    margin-left:5px;
+    padding: 3px 10px;
+    background-color: #ffffff;
+    color: #fd7e14;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+}
+.menu-links a:hover{
+    background-color: #333333;
+    color: #ffffff;
+}
+.linha-imagens {
+    text-align: center;
+    margin: 15px 0;
+}
+.linha-imagens img {
+    margin: 0 20px;
+    vertical-align: middle;
+}
+
+footer p {
+    font-size: 8px;
+    font-weight: bold;
+    text-align: center;
+    margin-top:20px;
+}
+
+

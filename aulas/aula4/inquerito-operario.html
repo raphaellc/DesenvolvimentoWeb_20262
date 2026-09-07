@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquérito Operário TI 2026</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Inquérito Operário 2026</h1>
+        <p>Condições de Trabalho e Vida na Tecnologia da Informação (TI)</p>
+    </header>
+
+    <main class="container">
+        <form action="#" method="GET" enctype="multipart/form-data">
+            <fieldset classe="section-card">
+                <legend>Acesso e Identificação (Anônimo)</legend>
+
+                <div class="form-group">
+                    <label for="form-id"> Código do Inquérito (identificador único):</label>
+                    <input type="text" id="form-id" name="form-id" value="INQ-2026" disabled>
+                    <small class="help-text"> Código não editável gerado automaticamente pelo sistema.</small>
+                </div>
+                <div class="form-group">
+                    <label for="chave-acesso">Chave de Acesso Pessoal (senha):</label>
+                    <input type="password" id="chave-acesso" name="chave-acesso" placeholder="Crie uma senha de acesso rápído" required>
+                    <small class="help-text"> Utilizada caso queira alterar ou excluir suas resposatas posteriormente.</small>
+                </div>
+                <div class="form-group">
+                    <label for="data-preenchimento">Data de Preenchimento:</label>
+                    <input type="date" id="data-preenchimento" name="data-preenchimento" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-contato"> E-mail de Contato (Opcional):</label>
+                    <input type="email" id="email-contato" name="email-contato" placeholder="seu.email@provedor.com">
+                </div>
+            </fieldset>
+        
+        <!-- Resto do form -->
+         <div class="form-actions">
+            <input type="reset" value="Limpar Respostas" class="btn btn-secundary">
+            <input type="submit" value="Enviar ao Inquérito" class="btn btn-primary">
+        </div>
+        </form>
+    </main>
+    <footer>
+        <p>Inquérito Operário TI 2025. Uma releitura científica e pedagógica das relações de trabalho.</p>
+    </footer>
+</body>
+</html>

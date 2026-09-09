@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratório Prático de Flexbox - Aula 6</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Laboratório Prático de Flexbox</h1>
+        <p>Experimente e compare as propriedades da Aula 6 em tempo real</p>
+    </header>
+
+    <main class="sandbox">
+
+        <!-- EXPERIMENTO 1: Direção e Quebra de Linha (Flex Container) -->
+        <section class="experiment">
+            <h2>1. Eixo Principal e Quebra (flex-direction & flex-wrap)</h2>
+            <p>Compare o comportamento do fluxo padrão em linha (row) com o fluxo em coluna (column), e veja o efeito do wrap.</p>
+            
+            <div class="row-layout">
+                <!-- Direção Horizontal Padrão (Sem quebra - esmaga os itens) -->
+                <div class="demo-box">
+                    <h3>flex-direction: row (nowrap)</h3>
+                    <div class="flex-container f-row f-nowrap">
+                        <div class="flex-item item-1">Item 1</div>
+                        <div class="flex-item item-2">Item 2</div>
+                        <div class="flex-item item-3">Item 3</div>
+                        <div class="flex-item item-4">Item 4</div>
+                    </div>
+                </div>
+
+                <!-- Direção Horizontal com Quebra ativa -->
+                <div class="demo-box">
+                    <h3>flex-direction: row (wrap)</h3>
+                    <div class="flex-container f-row f-wrap">
+                        <div class="flex-item item-1">Item 1</div>
+                        <div class="flex-item item-2">Item 2</div>
+                        <div class="flex-item item-3">Item 3</div>
+                        <div class="flex-item item-4">Item 4</div>
+                    </div>
+                </div>
+
+                <!-- Direção Vertical -->
+                <div class="demo-box">
+                    <h3>flex-direction: column</h3>
+                    <div class="flex-container f-column">
+                        <div class="flex-item item-1">Item 1</div>
+                        <div class="flex-item item-2">Item 2</div>
+                        <div class="flex-item item-3">Item 3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIMENTO 2: Alinhamento no Eixo Principal (justify-content) -->
+        <section class="experiment">
+            <h2>2. Alinhamento Horizontal/Principal (justify-content)</h2>
+            <p>Define como o espaço restante é distribuído entre ou ao redor dos itens ao longo do eixo principal.</p>
+
+            <div class="demo-box margin-b">
+                <h3>justify-content: space-between (Espaço apenas entre os itens)</h3>
+                <div class="flex-container j-between">
+                    <div class="flex-item item-1">A</div>
+                    <div class="flex-item item-2">B</div>
+                    <div class="flex-item item-3">C</div>
+                </div>
+            </div>
+
+            <div class="demo-box margin-b">
+                <h3>justify-content: space-around (Espaço ao redor de cada item)</h3>
+                <div class="flex-container j-around">
+                    <div class="flex-item item-1">A</div>
+                    <div class="flex-item item-2">B</div>
+                    <div class="flex-item item-3">C</div>
+                </div>
+            </div>
+
+            <div class="demo-box">
+                <h3>justify-content: center (Itens agrupados no centro)</h3>
+                <div class="flex-container j-center">
+                    <div class="flex-item item-1">A</div>
+                    <div class="flex-item item-2">B</div>
+                    <div class="flex-item item-3">C</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIMENTO 3: Alinhamento Vertical e Alinhamento Individual (align-items & align-self) -->
+        <section class="experiment">
+            <h2>3. Alinhamento Cruzado (align-items vs align-self)</h2>
+            <p>Como alinhar itens no eixo secundário (vertical) e como forçar um item filho a ignorar a regra geral do pai.</p>
+
+            <div class="row-layout">
+                <!-- Alinhamento padrão Stretch (Esticar) -->
+                <div class="demo-box">
+                    <h3>align-items: stretch (Padrão)</h3>
+                    <div class="flex-container ai-stretch height-200">
+                        <div class="flex-item item-1">A (Sem altura)</div>
+                        <div class="flex-item item-2">B (Sem altura)</div>
+                    </div>
+                </div>
+
+                <!-- Alinhamento centralizado com um rebelde (align-self) -->
+                <div class="demo-box">
+                    <h3>align-items: center + align-self no Item B</h3>
+                    <div class="flex-container ai-center height-200">
+                        <div class="flex-item item-1">Item A (Padrão)</div>
+                        <!-- Este item vai ignorar o alinhamento ao centro e vai para o final da tela -->
+                        <div class="flex-item item-2 self-end">Item B (Self-End)</div>
+                        <div class="flex-item item-3">Item C (Padrão)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIMENTO 4: Crescimento dos Elementos Filhos (flex-grow, flex-shrink e flex-basis) -->
+        <section class="experiment">
+            <h2>4. Flexibilidade dos Filhos (flex-grow & flex-basis)</h2>
+            <p>Controla as proporções e o tamanho inicial de cada bloco dentro do espaço restante do pai.</p>
+
+            <div class="demo-box margin-b">
+                <h3>Crescimento Igualitário (Todos com flex-grow: 1)</h3>
+                <div class="flex-container">
+                    <div class="flex-item item-1 grow-1">Esquerdo (Grow 1)</div>
+                    <div class="flex-item item-2 grow-1">Centro (Grow 1)</div>
+                    <div class="flex-item item-3 grow-1">Direito (Grow 1)</div>
+                </div>
+            </div>
+
+            <div class="demo-box">
+                <h3>Crescimento Desproporcional (Centro cresce o dobro)</h3>
+                <div class="flex-container">
+                    <div class="flex-item item-1 grow-1">Esquerdo (Grow 1)</div>
+                    <div class="flex-item item-2 grow-2">Centro (Grow 2 - Dobro do espaço)</div>
+                    <div class="flex-item item-3 grow-1">Direito (Grow 1)</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Laboratório de Flexbox - Desenvolvido para Estudos Práticos de CSS</p>
+    </footer>
+
+</body>
+</html>
